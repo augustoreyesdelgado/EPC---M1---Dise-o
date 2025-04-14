@@ -1,106 +1,116 @@
-🧩 Diseño de Software con MVC: Aplicación ToDo
+🧩 Diseño de Software con MVC – Ejemplo: Aplicación ToDo
 
-Este documento describe los pasos clave del **diseño de software**, aplicando el patrón **Modelo–Vista–Controlador (MVC)** como base conceptual, usando como ejemplo una aplicación para gestionar listas de tareas (ToDo).
+A continuación se describe un ejemplo completo del proceso de diseño de software para una aplicación de lista de tareas (**ToDo App**), aplicando cada uno de los pasos del ciclo de diseño y usando el patrón **Modelo–Vista–Controlador (MVC)**.
 
 ---
 
-## 🧱 Tipos de diseño
+## 🎨 Tipos de Diseño
 
 ### 1. Diseño de Interfaz (UI/UX)
-Se refiere a cómo interactúa el usuario con el sistema. Incluye:
-- Diseño visual (colores, botones, menús).
-- Facilidad de uso.
-- Experiencia del usuario (fluidez, accesibilidad).
+Diseñaremos una interfaz simple y clara, donde el usuario pueda:
+- Ver una lista de tareas.
+- Agregar nuevas tareas.
+- Marcar tareas como completadas.
+- Eliminar tareas.
+
+Nos enfocaremos en que la experiencia sea intuitiva, accesible y funcional tanto en computadora como en móvil.
 
 ### 2. Diseño Técnico (estructura del software)
-Organización del sistema en módulos y componentes. En MVC, se divide en:
-- Modelo: lógica de negocio y datos.
-- Vista: interfaz del usuario.
-- Controlador: conecta la vista con el modelo.
+Utilizaremos el patrón **MVC** para organizar el código:
+- **Modelo**: gestiona las tareas (crear, leer, actualizar, eliminar).
+- **Vista**: muestra la interfaz al usuario.
+- **Controlador**: recibe acciones del usuario y comunica la vista con el modelo.
 
 ### 3. Diseño de Datos
-Definición de cómo se almacenan y acceden los datos:
-- Estructuras internas (listas, diccionarios).
-- Persistencia (archivos, bases de datos).
-- Validación y consistencia de datos.
+Cada tarea estará representada por un diccionario o una fila de base de datos con:
+- ID
+- Descripción
+- Estado (pendiente o completada)
+- Fecha de creación
 
 ---
 
-## 🏗️ Definir la Arquitectura
+## 🏗️ Definición de la Arquitectura
 
 ### 4. Estructura General del Sistema
-El patrón **MVC** permite dividir la aplicación en tres capas bien diferenciadas, promoviendo el mantenimiento y la escalabilidad.
+Aplicación de arquitectura **monolítica** pequeña y simple, ideal para este proyecto, pero organizada con MVC para permitir su crecimiento.
 
-### 5. Tipos de Arquitectura
-- **Monolítica**: todo el sistema está unido en un solo bloque.
-- **Cliente-servidor**: separación entre quien usa la app (cliente) y quien procesa datos (servidor).
-- **Microservicios**: pequeñas partes independientes que colaboran.
+### 5. Tipo de Arquitectura
+Usaremos una arquitectura **cliente-servidor**, donde el cliente (navegador) se conecta a un servidor backend que gestiona las tareas.
 
-### 6. Importancia de una Buena Arquitectura
-- Facilita el **mantenimiento** y la **comprensión** del sistema.
-- Permite la **escalabilidad** en el tiempo.
-- Fomenta el **trabajo en equipo** con responsabilidades claras.
+### 6. Importancia de la arquitectura
+MVC permite:
+- Separación clara de responsabilidades.
+- Escalabilidad si en el futuro queremos usar base de datos o una API.
+- Facilita que varias personas trabajen simultáneamente (diseñador UI, backend, etc.).
 
 ---
 
-## 🎨 Diseñar Interfaces
+## 🖌️ Diseño de Interfaces
 
-### 7. Bocetos y Prototipos
-Diseñar la experiencia del usuario antes de programar:
-- Bocetos rápidos en papel.
-- Prototipos navegables para validar la lógica.
+### 7. Bocetos y prototipos
+Crearemos bocetos de las pantallas:
+- Pantalla principal con la lista de tareas y botones de acción.
+- Formulario para agregar nueva tarea.
 
 ### 8. Herramientas
-- Papel y lápiz
-- **Figma**, **Canva** (diseño visual)
-- **draw.io**, **Whimsical** (diagramas)
+Usaremos **draw.io** para los diagramas y bocetos iniciales, por ser gratuito, colaborativo y fácil de usar.
 
 ---
 
-## 📊 Creación de Diagramas
+## 🧩 Creación de Diagramas
 
-### 9. Tipos de diagramas comunes
-- **Flujo**: muestra el proceso paso a paso.
-- **Casos de uso**: qué puede hacer el usuario.
-- **Clases**: estructura del código orientado a objetos.
-- **Componentes**: relaciones entre partes del sistema.
+### 9. Tipos de Diagramas
+- **Flujo**: cómo se procesa una nueva tarea.
+- **Casos de uso**: "el usuario crea una tarea", "el usuario completa una tarea".
+- **Clases**: si usamos orientación a objetos.
+- **Componentes**: vista, modelo y controlador separados.
 
 ---
 
-## 🔢 Definir Algoritmos
+## 🧠 Definir Algoritmos
 
 ### 10. Pensar antes de programar
-Resolver el problema en papel o con pasos lógicos antes de escribir código.
+Por ejemplo:
+- Si el usuario marca una tarea como completada, debemos actualizar su estado en el modelo y refrescar la vista.
 
-### 11. Herramientas para diseño de algoritmos
-- **Pseudocódigo**: describir la lógica con palabras.
-- **Diagramas de flujo**: visualizar decisiones y procesos.
+### 11. Herramientas
+- Usaremos **pseudocódigo** para escribir la lógica de agregar y borrar tareas.
+- **Diagrama de flujo** para representar la navegación del usuario.
 
 ---
 
 ## ⚙️ Seleccionar Tecnologías
 
-### 12. Elección de herramientas
-- Lenguajes (ej. Python, JavaScript)
-- Frameworks (ej. Flask, React)
-- Bases de datos (ej. SQLite, PostgreSQL)
+### 12. Herramientas que utilizaremos
+- **Lenguaje**: Python
+- **Framework web**: Flask
+- **Frontend**: HTML + CSS + JavaScript (básico)
+- **Base de datos**: SQLite (opcional para persistencia)
 
-### 13. Criterios de selección
-- Experiencia del equipo
-- Compatibilidad con otras tecnologías
-- Apoyo de la comunidad
+### 13. Criterios
+- El equipo tiene experiencia con Python.
+- Flask es ligero y permite estructurar con MVC fácilmente.
+- HTML/CSS son suficientes para el prototipo.
 
 ---
 
 ## 📋 Especificaciones Técnicas
 
-### 14. Documentar el diseño técnico
-- Qué hace cada componente del sistema.
-- Qué entradas y salidas se esperan.
-- Qué errores podrían ocurrir y cómo se manejarán.
+### 14. Módulos del sistema
+- **Modelo**:
+  - Clase o módulo `Tarea` con atributos: `id`, `descripcion`, `completada`.
+  - Métodos: `crear_tarea()`, `listar_tareas()`, `marcar_completada()`, `eliminar_tarea()`.
+
+- **Vista**:
+  - Plantilla HTML que muestra la lista y botones de acción.
+
+- **Controlador**:
+  - Funciones en Flask que reciben los clics del usuario y llaman al modelo, luego redirigen a la vista.
+
+### Entradas/Salidas esperadas
+- Entrada: texto de la tarea nueva.
+- Salida: visualización actualizada en pantalla.
+- Excepciones: si el texto está vacío, mostrar advertencia.
 
 ---
-
-## ✅ Conclusión
-
-El diseño de software es una fase crítica que sienta las bases del desarrollo. Usar patrones como **MVC** ayuda a organizar ideas, asignar responsabilidades y preparar un sistema que pueda evolucionar fácilmente.
